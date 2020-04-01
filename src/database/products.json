@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "category": "Clothes",
+    "title": "Green Cloth",
+    "price": 552
+  },
+  {
+    "id": 2,
+    "category": "Clothes",
+    "title": "Blue Cloth",
+    "price": 612
+  },
+  {
+    "id": 3,
+    "category": "Clothes",
+    "title": "White Cloth",
+    "price": 513
+  },
+  {
+    "id": 4,
+    "category": "Pants",
+    "title": "Brown Pants",
+    "price": 650
+  },
+  {
+    "id": 5,
+    "category": "Pants",
+    "title": "Pink Pants",
+    "price": 1083
+  },
+  {
+    "id": 6,
+    "category": "Shoes",
+    "title": "White Shoes",
+    "price": 1065
+  },
+  {
+    "id": 7,
+    "category": "Decorations",
+    "title": "Silver Rings",
+    "price": 975
+  },
+  {
+    "id": 8,
+    "category": "Decorations",
+    "title": "Gold Rings",
+    "price": 1089
+  },
+  {
+    "id": 9,
+    "category": "Shoes",
+    "title": "Blue Shoes",
+    "price": 691
+  },
+  {
+    "id": 10,
+    "category": "Clothes",
+    "title": "Black Cloth",
+    "price": 408
+  },
+  {
+    "id": 11,
+    "category": "Pants",
+    "title": "Yellow Pants",
+    "price": 854
+  },
+  {
+    "id": 12,
+    "category": "Shoes",
+    "title": "Black Shoes",
+    "price": 469
+  }
+]
