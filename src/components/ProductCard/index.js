@@ -43,7 +43,12 @@ const ProductCard = ({ title, price, recommend = false }) => {
                 Image
             </div>
             <div className={classes.horizentalPadding}>
-                <Grid container alignItems="center" className={classes.verticalMargin}>
+                <Grid
+                    container
+                    alignItems="center"
+                    className={classes.verticalMargin}
+                    spacing={recommend ? null : 1}
+                >
                     <Grid item xs={recommend ? 12 : 'auto'}>
                         <Typography variant={recommend ? 'h6' : 'h5'} color="textSecondary" >
                             {title}
