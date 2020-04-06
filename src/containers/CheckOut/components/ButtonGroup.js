@@ -26,14 +26,18 @@ const ButtonGroup = (props) => {
     };
 
     const nextStep = () => {
-        if (step < 4) {
+        if (step < 3) {
             setStep(step + 1);
         }
     };
 
     const handleSubmit = () => {
-        alert('確認提交 ?');
+        setStep(step + 1);
     };
+
+    if (step > 3) {
+        return null;
+    }
 
     return (
         <div className={classes.buttonGroup}>
@@ -52,7 +56,7 @@ const ButtonGroup = (props) => {
                 color="secondary"
                 onClick={nextStep}
                 className={clsx(classes.button, {
-                    [classes.hidden]: step === 4,
+                    [classes.hidden]: step === 3,
                 })}
             >
                 Next
@@ -62,7 +66,7 @@ const ButtonGroup = (props) => {
                 color="secondary"
                 onClick={handleSubmit}
                 className={clsx(classes.button, {
-                    [classes.hidden]: step !== 4,
+                    [classes.hidden]: step !== 3,
                 })}
             >
                 Submit

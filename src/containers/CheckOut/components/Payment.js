@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import clsx from 'clsx';
 import {
     Grid,
     TextField,
@@ -19,15 +20,15 @@ const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'
 const years = [...Array(100).keys()];
 const icons = [
     {
-        id: 1,
+        name: 'MasterCard',
         src: 'https://image.flaticon.com/icons/svg/196/196561.svg',
     },
     {
-        id: 2,
+        name: 'VISA',
         src: 'https://image.flaticon.com/icons/svg/196/196578.svg',
     },
     {
-        id: 3,
+        name: 'PayPal',
         src: 'https://image.flaticon.com/icons/svg/174/174861.svg',
     },
 ];
@@ -49,26 +50,47 @@ const useStyles = makeStyles(theme => ({
     cvv: {
         width: 60,
     },
+    iconContainer: {
+        margin: theme.spacing(1, 0),
+    },
+    icon: {
+        border: '2px solid #eeeeee',
+        boxSizing: 'border-box',
+        margin: theme.spacing(0, 1),
+
+        '&:hover': {
+            background: '#ffe8ef',
+        },
+    },
     active: {
-        border: '1px solid #f50057',
-        transition: '0.2s ease-in-out',
+        background: '#ffeff4',
+        borderColor: '#ffeff4',
     },
 }));
 
-const Payment = () => {
+const Payment = ({confirmation}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const [selected, setSelected] = useState(1);
     const form = useSelector(state => state.form);
+    const [selected, setSelected] = useState(form.card || 'MasterCard');
+
+    const handleSelect = (name) => {
+        setSelected(name);
+        dispatch(setForm('card', name));
+    };
 
     return (
         <div className={classes.container}>
-            <div>
-                {icons.map(({ id, src }) => (
+            <Typography variant="h6">
+                Card
+            </Typography>
+            <div className={classes.iconContainer}>
+                {icons.map(({ name, src }) => (
                     <IconButton
-                        key={id}
-                        onClick={() => setSelected(id)}
-                        className={selected === id ? classes.active : null}
+                        key={name}
+                        disabled={confirmation}
+                        onClick={() => handleSelect(name)}
+                        className={clsx(classes.icon, selected === name ? classes.active : null)}
                     >
                         <Avatar src={src} />
                     </IconButton>
@@ -82,6 +104,7 @@ const Payment = () => {
                     <TextField
                         fullWidth
                         label="Cardholder Name"
+                        disabled={confirmation}
                         className={classes.textField}
                         value={form.cardholderName || ''}
                         onChange={event => dispatch(setForm('cardholderName', event.target.value))}
@@ -91,6 +114,7 @@ const Payment = () => {
                     <TextField
                         fullWidth
                         label="Card Number"
+                        disabled={confirmation}
                         className={classes.textField}
                         value={form.cardNumber || ''}
                         onChange={event => dispatch(setForm('cardNumber', event.target.value))}
@@ -107,6 +131,7 @@ const Payment = () => {
                         <Grid item>
                             <Select
                                 value={form.endMonth || 0}
+                                disabled={confirmation}
                                 onChange={event => dispatch(setForm('endMonth', event.target.value))}
                             >
                                 <MenuItem value={0} disabled>MM</MenuItem>
@@ -118,6 +143,7 @@ const Payment = () => {
                         <Grid item>
                             <Select
                                 value={form.endYear || 0}
+                                disabled={confirmation}
                                 onChange={event => dispatch(setForm('endYear', event.target.value))}
                             >
                                 <MenuItem value={0} disabled>YYYY</MenuItem>
@@ -135,6 +161,7 @@ const Payment = () => {
                     <TextField
                         value={form.cvv || ''}
                         className={classes.cvv}
+                        disabled={confirmation}
                         onChange={event => dispatch(setForm('cvv', event.target.value))}
                     />
                 </Grid>

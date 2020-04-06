@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Delivery = () => {
+const Delivery = ({confirmation}) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const form = useSelector(state => state.form);
@@ -55,6 +55,7 @@ const Delivery = () => {
                         fullWidth
                         label="First Name"
                         className={classes.textField}
+                        disabled={confirmation}
                         value={form.firstName || ''}
                         onChange={event => dispatch(setForm('firstName', event.target.value))}
                     />
@@ -64,6 +65,7 @@ const Delivery = () => {
                         fullWidth
                         label="Last Name"
                         className={classes.textField}
+                        disabled={confirmation}
                         value={form.lastName || ''}
                         onChange={event => dispatch(setForm('lastName', event.target.value))}
                     />
@@ -79,6 +81,7 @@ const Delivery = () => {
                         fullWidth
                         label="Phone"
                         className={classes.textField}
+                        disabled={confirmation}
                         value={form.phone || ''}
                         onChange={event => dispatch(setForm('phone', event.target.value))}
                     />
@@ -88,6 +91,7 @@ const Delivery = () => {
                         fullWidth
                         label="E-mail"
                         className={classes.textField}
+                        disabled={confirmation}
                         value={form.email || ''}
                         onChange={event => dispatch(setForm('email', event.target.value))}
                     />
@@ -104,6 +108,7 @@ const Delivery = () => {
                         <Select
                             fullWidth
                             value={form.country || ''}
+                            disabled={confirmation}
                             onChange={event => dispatch(setForm('country', event.target.value))}
                         >
                             <MenuItem value="Taiwan">Taiwan</MenuItem>
@@ -116,6 +121,7 @@ const Delivery = () => {
                         <Select
                             fullWidth
                             value={form.city || ''}
+                            disabled={confirmation}
                             onChange={event => dispatch(setForm('city', event.target.value))}
                         >
                             <MenuItem value="Taipei">Taipei</MenuItem>
@@ -127,6 +133,7 @@ const Delivery = () => {
                         fullWidth
                         label="Address"
                         className={classes.textField}
+                        disabled={confirmation}
                         value={form.address || ''}
                         onChange={event => dispatch(setForm('address', event.target.value))}
                     />
