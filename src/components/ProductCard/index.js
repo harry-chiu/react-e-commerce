@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: theme.typography.h5.fontSize,
         background: '#eeeeee',
         [theme.breakpoints.down('sm')]: {
-            height: 240,
+            height: recommend => recommend ? 240 : 240,
         },
     },
     price: {

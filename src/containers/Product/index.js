@@ -27,7 +27,7 @@ const Product = () => {
     const classes = useStyles();
     const location = useLocation();
     const categoryFromHome = location.category;
-    const [category, setCategory] = useState(0);
+    const [category, setCategory] = useState('All');
     const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {

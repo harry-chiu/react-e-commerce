@@ -19,11 +19,11 @@ import {
     Done as DoneIcon,
 } from '@material-ui/icons'
 
-import actions from '../../actions';
+import { cartActions } from '../../actions';
 import products from '../../database/products';
 import ProductCard from '../../components/ProductCard';
 
-const { addProduct } = actions;
+const { addProduct } = cartActions;
 
 const useStyles = makeStyles(theme => ({
     fakeImage: {

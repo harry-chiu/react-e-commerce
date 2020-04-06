@@ -1,4 +1,7 @@
-export default {
-    ADD_PRODUCT: 'ADD_PRODUCT',
-    REMOVE_PRODUCT: 'REMOVE_PRODUCT',
+import cartConstants from './cartConstants';
+import formConstants from './formConstants';
+
+export {
+    cartConstants,
+    formConstants,
 };
