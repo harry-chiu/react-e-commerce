@@ -60,7 +60,7 @@ const Product = () => {
             <Grid container spacing={3}>
                 {filteredProducts.map(({ id, title, price }) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={id}>
-                        <NavLink to={`/product/${id}`} className={classes.navLink}>
+                        <NavLink to={`/products/${id}`} className={classes.navLink}>
                             <ProductCard title={title} price={price} />
                         </NavLink>
                     </Grid>

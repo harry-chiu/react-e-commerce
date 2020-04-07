@@ -43,7 +43,7 @@ const Home = () => {
 
     return (
         <>
-            <NavLink to="/product/1" className={classes.navLink}>
+            <NavLink to="/products/1" className={classes.navLink}>
                 <Card variant="outlined" className={clsx(classes.card, classes.banner)}>
                     <Typography variant="h1" color="textSecondary" className={classes.bannerTitle}>
                         Banner
@@ -57,7 +57,7 @@ const Home = () => {
             <Grid container spacing={3}>
                 {categories.map(({ id, category }) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={id}>
-                        <NavLink to={{ category, pathname: "/product" }} className={classes.navLink}>
+                        <NavLink to={{ category, pathname: "/products" }} className={classes.navLink}>
                             <CategoryCard category={category} />
                         </NavLink>
                     </Grid>
@@ -70,7 +70,7 @@ const Home = () => {
             <Grid container spacing={3}>
                 {products.map(({ id, title, price }) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={id}>
-                        <NavLink to={`/product/${id}`} className={classes.navLink}>
+                        <NavLink to={`/products/${id}`} className={classes.navLink}>
                             <ProductCard title={title} price={price} />
                         </NavLink>
                     </Grid>

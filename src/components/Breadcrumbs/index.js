@@ -4,7 +4,6 @@ import {
     useLocation,
 } from 'react-router-dom';
 import {
-    Card,
     Breadcrumbs,
     Typography,
     makeStyles,
@@ -12,15 +11,13 @@ import {
 
 const pathnameMap = {
     '/': 'Home',
-    '/product': 'Product',
+    '/products': 'Product',
     '/checkout': 'Check Out',
-    '/sign-in': 'Sign In',
 };
 
 const useStyles = makeStyles(theme => ({
-    card: {
+    container: {
         margin: theme.spacing(2, 0),
-        padding: theme.spacing(1),
     },
     navLink: {
         color: '#737373',
@@ -38,7 +35,7 @@ const BreadcrumbsWrapper = () => {
     const pathnames = pathname.split('/');
 
     return (
-        <Card variant="outlined" className={classes.card}>
+        <div className={classes.container}>
             <Breadcrumbs>
                 {pathname === '/' ? (
                     <Typography variant="h5" color="secondary">
@@ -67,7 +64,7 @@ const BreadcrumbsWrapper = () => {
                         })
                     )}
             </Breadcrumbs>
-        </Card>
+        </div>
     );
 };
 
