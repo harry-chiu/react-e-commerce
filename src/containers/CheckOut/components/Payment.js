@@ -122,7 +122,7 @@ const Payment = ({confirmation}) => {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={6}>
+            <Grid container spacing={5}>
                 <Grid item>
                     <Typography variant="h6">
                         End Date
