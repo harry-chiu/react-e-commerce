@@ -195,7 +195,7 @@ const ProductDetail = () => {
                                 {recommendProducts.map(({ id, title, price }) => (
                                     <Grid xs={12} md={4} item key={id}>
                                         <NavLink
-                                            to={`/product/${id}`}
+                                            to={`/products/${id}`}
                                             className={classes.navLink}
                                             onClick={() => setAmount(0)}
                                         >
